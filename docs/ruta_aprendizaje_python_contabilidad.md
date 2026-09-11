@@ -79,6 +79,7 @@ El laboratorio 2 implementa la sesión de consolidación con explicaciones,
 tablas intermedias y gráficos:
 
 - `laboratorios/lab_02_consolidacion_sofland.ipynb`
+- `laboratorios/lab_03_conciliacion_movimientos.ipynb`
 - `py -3 ejemplos/ejecutar_ejemplos.py` para recorrer todo el flujo con log.
 
 | Sesión | Tema | Evidencia |
