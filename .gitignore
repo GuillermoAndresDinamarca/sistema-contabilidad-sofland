@@ -1,0 +1,14 @@
+# Salidas generadas localmente
+reportes/*.xlsx
+logs/*.log
+
+# Caché de Python
+__pycache__/
+*.py[cod]
+
+# Entornos locales
+.venv/
+venv/
+
+# Salidas locales de Docker
+datos_salida/
