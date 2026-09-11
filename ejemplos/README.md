@@ -11,6 +11,7 @@ Desde la raíz del proyecto:
 py -3 ejemplos/generar_ejemplos.py
 py -3 ejemplos/generar_casos_especiales.py
 py -3 ejemplos/generar_casos_practicos.py
+py -3 ejemplos/primeros_codigos.py
 py -3 ejemplos/analizar_casos_contables.py
 py -3 ejemplos/validar_datos_contables.py
 py -3 ejemplos/pipeline_contable_completo.py ejemplos
@@ -18,6 +19,18 @@ py -3 ejemplos/pipeline_contable_completo.py ejemplos
 
 Los Excel generados por los analizadores quedan en `reportes/`. Los archivos
 de entrada permanecen en `ejemplos/`.
+
+### 0. Primeros códigos de Python
+
+Antes de entrar a todos los módulos, ejecuta:
+
+```powershell
+py -3 ejemplos/primeros_codigos.py
+```
+
+El script muestra en consola leer, limpiar, calcular, agrupar y graficar.
+Genera `reportes/primeros_codigos_empresae.xlsx` y
+`reportes/primeros_codigos_empresae.png`.
 
 ## Casos iniciales
 

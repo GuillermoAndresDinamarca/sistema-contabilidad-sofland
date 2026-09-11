@@ -69,7 +69,8 @@ Cada tarea debe moverse a la sección "En Progreso" cuando se comience a trabaja
   - ✅ Implementado en caso_conciliacion.xlsx (falta pago nómina, diferencia $5.22M).
   
 - [ ] **T015**: Completar las sesiones 1 a 6 de `docs/ruta_aprendizaje_python_contabilidad.md` con evidencias y revisión humana.
-  - 🔄 En progreso: laboratorio 2 creado en `laboratorios/lab_02_consolidacion_sofland.ipynb`.
+  - 🔄 En progreso: primera sesión programada para este domingo; guion incorporado en `docs/tutorial.md`.
+  - ✅ Laboratorio 2 creado en `laboratorios/lab_02_consolidacion_sofland.ipynb`.
   - ✅ Laboratorio 3 creado en `laboratorios/lab_03_conciliacion_movimientos.ipynb`.
   - ✅ Ejecutor guiado `ejemplos/ejecutar_ejemplos.py` registra cada etapa en `logs/`.
   - Próximo: crear y ejecutar labs 03-06 con estudiantes.

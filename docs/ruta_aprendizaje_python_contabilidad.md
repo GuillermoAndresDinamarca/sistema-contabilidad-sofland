@@ -4,6 +4,10 @@ Esta ruta usa los ejemplos sintéticos del sistema. Cada ejercicio produce evide
 
 ## Nivel 1: leer y limpiar
 
+**Sesión inicial recomendada:** usar la sección “Sesión 1 de capacitación” de
+`docs/tutorial.md` como guion del domingo. La sesión debe terminar con una
+explicación oral del flujo, no solo con código ejecutado.
+
 **Archivo:** `ejemplos/analizar_casos_contables.py`
 
 Objetivos:

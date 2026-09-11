@@ -6,6 +6,67 @@ Este tutorial te lleva paso a paso por un cierre mensual completo usando los arc
 de ejemplo incluidos en la carpeta `ejemplos/`. Al terminar, habrás practicado todo
 el flujo que el sistema automatiza.
 
+## Sesión 1 de capacitación: primeros códigos Python
+
+**Duración sugerida:** 90 minutos  
+**Objetivo:** que cada participante entienda cómo Python lee un Excel, detecta
+su encabezado, calcula totales y señala un descuadre sin modificar datos reales.
+
+### Guion para quien presenta
+
+| Minutos | Actividad | Evidencia |
+|---:|---|---|
+| 0-10 | Presentar el problema del encabezado Sofland | Archivo `empresaa.xlsx` abierto |
+| 10-25 | Ejecutar `read_excel` y observar el error | Tabla cruda con filas de metadatos |
+| 25-40 | Usar detección de encabezado y `skiprows` | Tabla limpia |
+| 40-55 | Calcular Debe, Haber y diferencia | Tres valores impresos |
+| 55-70 | Revisar EmpresaE | Descuadre de $1.500.000 |
+| 70-85 | Explorar el navegador de ejemplos | Vista previa y gráfico |
+| 85-90 | Cierre y preguntas | Cada persona explica un hallazgo |
+
+### Código inicial para mostrar
+
+```python
+import pandas as pd
+
+archivo = "ejemplos/empresaa.xlsx"
+df = pd.read_excel(archivo, skiprows=4)
+
+total_debe = df["Debe"].sum()
+total_haber = df["Haber"].sum()
+diferencia = total_debe - total_haber
+
+print(f"Debe: ${total_debe:,.0f}")
+print(f"Haber: ${total_haber:,.0f}")
+print(f"Diferencia: ${diferencia:,.0f}")
+```
+
+Para ver el recorrido completo, ejecutar después:
+
+```powershell
+py -3 ejemplos/primeros_codigos.py
+```
+
+Este script deja un Excel y un gráfico en `reportes/`, para que el grupo pueda
+comparar la tabla original, el resumen por cuenta y la diferencia detectada.
+
+La pregunta pedagógica no es memorizar `skiprows`, sino identificar qué problema
+resuelve cada instrucción: leer, seleccionar, sumar y comparar.
+
+### Actividad de los participantes
+
+1. Ejecutar `py -3 ejemplos/generar_ejemplos.py`.
+2. Cambiar `empresaa.xlsx` por `empresae.xlsx`.
+3. Explicar por qué ambos archivos se leen igual pero entregan diferencias distintas.
+4. Abrir el navegador **Navegador de Ejemplos** en Streamlit.
+5. Seleccionar una columna numérica y explicar qué representa el gráfico.
+
+### Regla de seguridad para la sesión
+
+Los archivos son sintéticos. Ninguna persona debe cargar datos reales durante la
+primera sesión. Todo `ERROR` o `REVISAR` se interpreta como una señal para revisar,
+no como una corrección contable automática.
+
 ---
 
 ## Antes de empezar
@@ -168,7 +229,7 @@ Después de generar los ejemplos, ejecuta desde la raíz del proyecto:
 python ejemplos\analizar_casos_contables.py
 ```
 
-El script crea `ejemplos/reporte_analisis_contable.xlsx` con cuatro hojas:
+El script crea `reportes/reporte_analisis_contable.xlsx` con cuatro hojas:
 
 - `Control_empresas`: filas, cuentas vacías, duplicados, Debe, Haber y diferencia.
 - `Consolidado`: todos los comprobantes con archivo de origen.

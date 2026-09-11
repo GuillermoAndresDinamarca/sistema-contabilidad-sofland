@@ -140,3 +140,7 @@ Prepara alertas por correo para archivos con estado `ERROR` o `REVISAR`.
 Ejecuta el recorrido completo por etapas y registra cada paso en `logs/`.
 - Uso: `py -3 ejemplos/ejecutar_ejemplos.py`
 - Las salidas Excel se agrupan en `reportes/`.
+
+### 🎓 `ejemplos/primeros_codigos.py`
+Script breve para la primera capacitación: leer, limpiar, calcular, comparar y graficar.
+- Uso: `py -3 ejemplos/primeros_codigos.py`
