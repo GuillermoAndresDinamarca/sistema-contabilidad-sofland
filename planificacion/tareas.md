@@ -44,6 +44,10 @@ Cada tarea debe moverse a la sección "En Progreso" cuando se comience a trabaja
 - [x] Agregar casos prácticos sintéticos para Book, banco y revisión de cuentas.
 - [ ] Probar instalación desde un clon limpio en el equipo del segundo analista.
   - 📋 Pendiente porque Docker no está disponible en el entorno actual.
+- [x] Agregar navegador de ejemplos a la interfaz Streamlit.
+  - ✅ Permite seleccionar Excel, ver filas, tipos, nulos, memoria y gráficos.
+- [x] Crear recorrido guiado con log.
+  - ✅ `ejemplos/ejecutar_ejemplos.py` registra cada etapa y sus salidas.
 
 ## 🟣 Capacitación y ejemplos Python
 

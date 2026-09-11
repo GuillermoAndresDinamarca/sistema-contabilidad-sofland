@@ -98,6 +98,10 @@ de forma autónoma.
 - ✅ Laboratorio 01 (limpieza Sofland) disponible en notebook
 - 📋 En progreso: T015 (ejecutar ruta de 6 sesiones con equipo)
 - 📋 Pendiente: T016 (validar con Jocelyn)
+- ✅ Navegador interactivo de ejemplos agregado a Streamlit, con vista previa,
+  tipos, nulos, métricas y gráficos.
+- ✅ Laboratorio 2 creado en JSON válido para compartirlo online.
+- ✅ Recorrido guiado con logs y salidas separadas en `reportes/`.
 
 **Tareas planeadas:**
 - [ ] Ejecutar labs 01-06 con estudiantes en sesiones semanales
