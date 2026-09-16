@@ -13,6 +13,7 @@ venv/
 
 # Salidas locales de Docker
 datos_salida/
+ejemplos/practica_*/
 
 # Planificacion estrategica local, no publicar
 planificacion/

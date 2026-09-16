@@ -17,6 +17,7 @@ Ejecutar con:
 
 import os
 import random
+import argparse
 import pandas as pd
 import numpy as np
 from datetime import date, timedelta
@@ -187,15 +188,64 @@ def generar_cartola_banco() -> pd.DataFrame:
     return df
 
 
+def crear_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Genera Excel sinteticos para practicar lectura, limpieza, "
+            "cuadratura y consolidacion contable."
+        ),
+        epilog=(
+            "Despues de generar: py -3 analizar_casos_contables.py\n"
+            "Para practicar errores: py -3 generar_casos_especiales.py"
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument(
+        "--periodo",
+        default=PERIODO,
+        help="Periodo de los ejemplos, formato AAAA-MM (por defecto: %(default)s).",
+    )
+    parser.add_argument(
+        "--empresas",
+        type=int,
+        default=len(EMPRESAS),
+        choices=range(1, len(EMPRESAS) + 1),
+        help="Cantidad de empresas a generar, de 1 a 5 (por defecto: 5).",
+    )
+    parser.add_argument(
+        "--sin-desbalance",
+        action="store_true",
+        help="No agrega el descuadre intencional de EmpresaE.",
+    )
+    parser.add_argument(
+        "--salida",
+        type=str,
+        default=DIRECTORIO,
+        help="Carpeta donde guardar los Excel, sin borrar archivos existentes.",
+    )
+    return parser
+
+
 if __name__ == "__main__":
+    args = crear_parser().parse_args()
+    DIRECTORIO = os.path.abspath(args.salida)
+    os.makedirs(DIRECTORIO, exist_ok=True)
+    PERIODO = args.periodo
+    empresas = list(EMPRESAS.items())[:args.empresas]
+    if args.sin_desbalance:
+        for _, config in empresas:
+            config.pop("descuadre_intencional", None)
+
     print("=" * 55)
-    print("  GENERADOR DE DATOS DE EJEMPLO")
+    print("  GENERADOR GUIADO DE DATOS DE EJEMPLO")
     print(f"  Período: {PERIODO}")
+    print(f"  Empresas: {len(empresas)}")
+    print("  Objetivo: crear archivos seguros para practicar sin datos reales")
     print("=" * 55)
     print()
 
     # Generar comprobantes de cada empresa
-    for nombre, config in EMPRESAS.items():
+    for nombre, config in empresas:
         df = generar_comprobante(nombre, config)
         ruta = os.path.join(DIRECTORIO, f"{nombre.lower()}.xlsx")
         guardar_con_encabezado_sofland(df, ruta, nombre)
@@ -207,12 +257,14 @@ if __name__ == "__main__":
     print(f"  ✅ cartola_banco.xlsx ({len(df_cartola)} movimientos)")
 
     print()
-    print("  📁 Todos los archivos de ejemplo creados en la carpeta 'ejemplos/'")
+    print(f"  📁 Archivos creados en: {os.path.abspath(DIRECTORIO)}")
     print()
     print("  GUÍA PARA PRACTICAR:")
-    print("  1. Sube empresa_A.xlsx, empresa_B.xlsx, empresa_C.xlsx,")
+    print("  1. Revisa primero las filas de encabezado de cualquier empresa.")
+    print("  2. Sube empresa_A.xlsx, empresa_B.xlsx, empresa_C.xlsx,")
     print("     empresa_D.xlsx al módulo 'Limpiar Comprobantes'.")
-    print("  2. Nota que empresa_E.xlsx tiene un DESCUADRE INTENCIONAL.")
+    print("  3. Nota que empresa_E.xlsx tiene un DESCUADRE INTENCIONAL.")
     print("     Úsalo para practicar la detección de errores.")
-    print("  3. Sube cartola_banco.xlsx al módulo 'Cuadratura Bancaria'.")
+    print("  4. Sube cartola_banco.xlsx al módulo 'Cuadratura Bancaria'.")
+    print("  5. Siguiente comando: py -3 primeros_codigos.py --empresa empresae.xlsx")
     print()

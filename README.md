@@ -101,11 +101,13 @@ La carpeta `ejemplos/` contiene scripts reutilizables para analizar y validar da
 Genera 5 casos de prueba sintéticos (Empresas A-E) + cartola bancaria.
 - **Empresa E:** Incluye descuadre intencional de $1,500,000 para practicar detección.
 - Uso: `python generar_ejemplos.py`
+- Ayuda y variaciones: `python generar_ejemplos.py --help`
 
 ### 🔍 `analizar_casos_contables.py`
 Analiza archivos Excel y detecta cuadrados de Debe/Haber.
 - Genera reporte Excel con 4 hojas: Control, Consolidado, Cuentas, Centros.
 - Uso: `python analizar_casos_contables.py`
+- Permite elegir `--entrada` y `--salida` para trabajar con prácticas aisladas.
 
 ### ⚠️ `validar_datos_contables.py`
 Detección avanzada de anomalías: duplicados, valores faltantes, caracteres especiales.
@@ -137,6 +139,7 @@ Prepara alertas por correo para archivos con estado `ERROR` o `REVISAR`.
 Ejecuta el recorrido completo por etapas y registra cada paso en `logs/`.
 - Uso: `py -3 ejemplos/ejecutar_ejemplos.py`
 - Las salidas Excel se agrupan en `reportes/`.
+- Para una clase: `py -3 ejemplos/ejecutar_ejemplos.py --solo 01`.
 
 ### 🎓 `ejemplos/primeros_codigos.py`
 Script breve para la primera capacitación: leer, limpiar, calcular, comparar y graficar.

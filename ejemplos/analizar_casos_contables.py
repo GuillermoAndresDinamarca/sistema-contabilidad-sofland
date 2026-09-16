@@ -9,6 +9,7 @@ Uso desde la raiz del proyecto:
 
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 
 import pandas as pd
@@ -85,18 +86,44 @@ def resumen_por_centro_de_costo(frame: pd.DataFrame) -> pd.DataFrame:
     )
 
 
-def main() -> None:
-    if not EMPRESAS:
-        raise SystemExit("No hay empresa_*.xlsx. Ejecuta primero generar_ejemplos.py")
+def crear_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        description="Lee comprobantes Sofland, calcula controles y genera un Excel explicativo.",
+        epilog=(
+            "Ejemplo: py -3 analizar_casos_contables.py --entrada . --salida ../reportes/analisis.xlsx"
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument("--entrada", type=Path, default=ROOT, help="Carpeta con empresa*.xlsx.")
+    parser.add_argument("--salida", type=Path, default=REPORTES / "reporte_analisis_contable.xlsx", help="Excel de salida.")
+    return parser
 
-    frames = [leer_comprobante(path) for path in EMPRESAS]
+
+def main(argumentos=None) -> None:
+    args = crear_parser().parse_args(argumentos)
+    empresas = sorted(args.entrada.glob("empresa*.xlsx"))
+    if not empresas:
+        raise SystemExit(
+            f"No hay empresa*.xlsx en {args.entrada}. "
+            "Ejecuta primero generar_ejemplos.py."
+        )
+
+    print("\n=== ANALISIS GUIADO DE COMPROBANTES ===")
+    print(f"Entrada: {args.entrada.resolve()}")
+    print(f"Archivos encontrados: {len(empresas)}")
+    print("En cada archivo buscamos Cuenta, Debe y Haber antes de leer los datos.")
+
+    frames = []
+    for path in empresas:
+        print(f"  -> leyendo {path.name}")
+        frames.append(leer_comprobante(path))
     report = pd.DataFrame([revisar_comprobante(frame) for frame in frames])
     consolidado = pd.concat(frames, ignore_index=True)
     por_cuenta = resumen_por_cuenta(consolidado)
     por_centro = resumen_por_centro_de_costo(consolidado)
 
-    REPORTES.mkdir(exist_ok=True)
-    output = REPORTES / "reporte_analisis_contable.xlsx"
+    args.salida.parent.mkdir(exist_ok=True)
+    output = args.salida
     with pd.ExcelWriter(output, engine="openpyxl") as writer:
         report.to_excel(writer, sheet_name="Control_empresas", index=False)
         consolidado.to_excel(writer, sheet_name="Consolidado", index=False)
@@ -105,7 +132,8 @@ def main() -> None:
 
     print(report.to_string(index=False))
     print(f"\nReporte generado: {output}")
-    print("Revisar especialmente EmpresaE y cualquier diferencia distinta de cero.")
+    print("Recomendacion: abrir Control_empresas y revisar toda diferencia distinta de cero.")
+    print("Las filas, cuentas y tolerancias requieren aprobacion humana antes de importar.")
 
 
 if __name__ == "__main__":
