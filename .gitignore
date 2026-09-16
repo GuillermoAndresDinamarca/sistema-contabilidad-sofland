@@ -13,3 +13,7 @@ venv/
 
 # Salidas locales de Docker
 datos_salida/
+
+# Planificacion estrategica local, no publicar
+planificacion/
+REPORTE_AVANCES_PROYECTO.md
