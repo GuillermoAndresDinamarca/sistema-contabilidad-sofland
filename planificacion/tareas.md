@@ -1,7 +1,16 @@
 # Backlog de Tareas (Por Hacer)
 
-Este documento centraliza todas las tareas pendientes del proyecto, ordenadas por prioridad.
-Cada tarea debe moverse a la sección "En Progreso" cuando se comience a trabajar en ella.
+Este documento centraliza las tareas del proyecto, ordenadas por prioridad.
+Cada tarea debe tener un estado verificable: pendiente, en progreso, bloqueada o
+completada. Solo las tareas completadas y validadas se incorporan al repositorio.
+
+## Criterio de publicación
+
+- **Completada:** código/documentación terminada, prueba ejecutada y resultado registrado.
+- **En progreso:** existe trabajo local, pero todavía no debe presentarse como solución final.
+- **Bloqueada:** depende de una decisión, archivo o acceso externo.
+- **Pendiente:** todavía no se ha iniciado.
+- Los datos reales, credenciales, reportes temporales y salidas locales no se suben.
 
 ## 🔴 Alta Prioridad (Próximo Cierre)
 
@@ -35,6 +44,13 @@ Cada tarea debe moverse a la sección "En Progreso" cuando se comience a trabaja
   - ✅ Modo simulación predeterminado; no envía correo sin `--enviar` y variables SMTP.
 - [ ] Configurar credenciales SMTP y probar envío controlado con cuenta institucional.
 - [ ] Instalar la tarea diaria en el equipo de operación y documentar el horario aprobado.
+
+## 📌 Próximo bloque de trabajo
+
+- [ ] **T017**: Ejecutar la primera sesión de capacitación y registrar asistencia, dudas y evidencias.
+- [ ] **T018**: Ejecutar un clon limpio en el equipo del segundo analista.
+- [ ] **T019**: Crear checklist formal de revisión antes de importar a Sofland.
+- [ ] **T020**: Definir el formato de exportación Book y aprobar el mapeo con la persona responsable.
 
 ## 📦 Instalación y ejemplos
 

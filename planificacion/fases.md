@@ -1,11 +1,11 @@
 # Fases del Proyecto — Sistema de Contabilidad Sofland
 
-## Hoja de Ruta 2024-2025
+## Hoja de Ruta 2026
 
 ```
 FASE 1 ────────── FASE 2 ────────── FASE 3 ────────── FASE 4 ────────── FASE 5
 MVP Local         Integración       Automatización    Capacitación      Escala
-[COMPLETADO]      [EN PROGRESO]     [PENDIENTE]       [EN PROGRESO]     [FUTURO]
+[COMPLETADO]      [BLOQUEADA]       [EN PROGRESO]     [EN PROGRESO]     [FUTURO]
 ```
 
 ---
@@ -38,8 +38,8 @@ para el cierre de agosto.
 
 ## 🔄 FASE 2: Integración Book ↔ Sofland (En Progreso)
 
-**Período estimado:** Octubre - Noviembre 2024
-**Estado:** 🔄 En progreso
+**Período estimado:** Por definir después de validar Book
+**Estado:** ⏸️ Bloqueada por T002/T020
 
 **Objetivo:** Eliminar el intermediario manual (Excel) entre Book (RRHH) y Sofland (Contabilidad).
 
@@ -59,13 +59,14 @@ para el cierre de agosto.
 
 ## 📋 FASE 3: Automatización Avanzada (Pendiente)
 
-**Período estimado:** Diciembre 2024 - Febrero 2025
-**Estado:** ⏳ Iniciada
+**Período estimado:** Septiembre - Octubre 2026
+**Estado:** 🔄 En progreso
 
 **Objetivo:** Reducir la intervención manual al mínimo necesario para la revisión humana.
 
-**Avance actual:** Se completaron los módulos de análisis, validación y pipeline. Ahora se necesita
-integración con scheduler y notificaciones.
+**Avance actual:** Se completaron y probaron los módulos de análisis, validación,
+pipeline, scheduler y notificación en modo simulación. Falta instalar el servicio
+en el equipo operativo y configurar un envío institucional controlado.
 
 **Tareas planeadas:**
 - [ ] Programar ejecución automática del pipeline al inicio del día de cierre (Windows Task Scheduler / cron)
@@ -80,13 +81,13 @@ integración con scheduler y notificaciones.
 
 ## 🎓 FASE 4: Capacitación del Equipo (En progreso)
 
-**Período estimado:** Marzo - Abril 2025
+**Período estimado:** Septiembre - Noviembre 2026
 **Estado:** 🔄 En Progreso
 
 **Objetivo:** Que el equipo completo de analistas de Jocelyn pueda usar el sistema
 de forma autónoma.
 
-**Avance actual (Sesión 2025-09-10):**
+**Avance actual (2026-09-16):**
 - ✅ Implementados 5 módulos Python reproducibles:
   - `generar_ejemplos.py`: 5 casos de prueba (A-E)
   - `analizar_casos_contables.py`: cuadratura y resúmenes
@@ -100,8 +101,9 @@ de forma autónoma.
 - 📋 Pendiente: T016 (validar con Jocelyn)
 - ✅ Navegador interactivo de ejemplos agregado a Streamlit, con vista previa,
   tipos, nulos, métricas y gráficos.
-- ✅ Laboratorio 2 creado en JSON válido para compartirlo online.
+- ✅ Laboratorios 2 y 3 creados en JSON válido para compartirlos online.
 - ✅ Recorrido guiado con logs y salidas separadas en `reportes/`.
+- 📋 Primera sesión de capacitación pendiente de ejecutar y registrar.
 
 **Tareas planeadas:**
 - [ ] Ejecutar labs 01-06 con estudiantes en sesiones semanales
@@ -111,6 +113,13 @@ de forma autónoma.
 - [ ] Protocolo de cierre mensual: documento oficial con los pasos a seguir
 - [ ] Definición de roles: quién opera qué módulo y cuándo
 - [ ] Sesión de retroalimentación post-primer cierre con el equipo
+
+## 📋 Criterio de avance de fases
+
+Una fase avanza cuando sus entregables tienen código o documento versionado,
+una prueba reproducible y una persona responsable identificada. Las tareas que
+dependen de reglas contables, credenciales o datos reales no se marcan como
+completadas por tener solo una implementación técnica.
 
 ## 🚀 FASE 5: Escalado Multiusuario (Futuro)
 

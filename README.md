@@ -93,6 +93,9 @@ usar una carpeta de entrada controlada y revisar los permisos de los reportes.
 - [Laboratorio 2: consolidación y visualización](laboratorios/lab_02_consolidacion_sofland.ipynb)
 - [Laboratorio 3: conciliación de movimientos](laboratorios/lab_03_conciliacion_movimientos.ipynb)
 - [Guía de ejemplos prácticos](ejemplos/README.md)
+- [Índice de planificación](planificacion/README.md)
+- [Registro de avances](planificacion/registro_avances.md)
+- [Plantilla de evidencia de capacitación](docs/plantilla_evidencia_sesion.md)
 
 El análisis local usa datos sintéticos y deja la decisión contable en manos de la persona responsable.
 
